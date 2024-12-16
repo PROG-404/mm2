@@ -1,18 +1,20 @@
+-- تحميل مكتبة Orion
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "PORG-404", HidePremium = false, SaveConfig = true, ConfigFolder = "PORG-404"})
 
+-- القسم الأول: Main
 local MainTab = Window:MakeTab({
     Name = "Main",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
 
-
+-- سكشن Kill All
 MainTab:AddSection({
     Name = "Kill All Options"
 })
 
-
+-- زر قتل الجميع
 MainTab:AddButton({
     Name = "Kill All",
     Callback = function()
@@ -32,12 +34,12 @@ MainTab:AddButton({
     end    
 })
 
-
+-- سكشن الفوز التلقائي
 MainTab:AddSection({
     Name = "Auto Win"
 })
 
-
+-- زر الفوز التلقائي
 MainTab:AddToggle({
     Name = "Auto Win",
     Default = false,
@@ -54,12 +56,12 @@ MainTab:AddToggle({
     end    
 })
 
-
+-- سكشن إعدادات الأداء
 MainTab:AddSection({
     Name = "Performance Settings"
 })
 
-
+-- زر زيادة الفريمات
 MainTab:AddButton({
     Name = "Increase FPS",
     Callback = function()
@@ -67,7 +69,7 @@ MainTab:AddButton({
     end    
 })
 
-
+-- زر زيادة الجودة
 MainTab:AddButton({
     Name = "Increase Quality",
     Callback = function()
@@ -75,7 +77,7 @@ MainTab:AddButton({
     end    
 })
 
-
+-- زر إعادة ضبط اللاعب
 MainTab:AddButton({
     Name = "Reset Player",
     Callback = function()
@@ -83,19 +85,19 @@ MainTab:AddButton({
     end    
 })
 
-
+-- القسم الثاني: Teleports
 local TeleportTab = Window:MakeTab({
     Name = "Teleports",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
 
-
+-- سكشن قائمة اللاعبين
 TeleportTab:AddSection({
     Name = "Teleport to Players"
 })
 
-
+-- قائمة أسماء اللاعبين
 local playerList = {}
 for _, player in pairs(game.Players:GetPlayers()) do
     table.insert(playerList, player.Name)
@@ -112,12 +114,12 @@ TeleportTab:AddDropdown({
     end    
 })
 
-
+-- سكشن النقل إلى المسدس
 TeleportTab:AddSection({
     Name = "Teleport to Gun"
 })
 
-
+-- زر التنقل إلى المسدس
 TeleportTab:AddToggle({
     Name = "Teleport to Gun",
     Default = false,
@@ -133,19 +135,19 @@ TeleportTab:AddToggle({
     end    
 })
 
-
+-- القسم الثالث: ESP
 local ESPTab = Window:MakeTab({
     Name = "ESP",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
 
-
+-- سكشن ESP
 ESPTab:AddSection({
     Name = "ESP Settings"
 })
 
-
+-- زر ESP
 ESPTab:AddToggle({
     Name = "ESP (Detect Roles)",
     Default = false,
@@ -174,19 +176,19 @@ ESPTab:AddToggle({
     end    
 })
 
-
+-- القسم الرابع: Player
 local PlayerTab = Window:MakeTab({
     Name = "Player",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
 
-
+-- سكشن تحسينات اللاعب
 PlayerTab:AddSection({
     Name = "Player Enhancements"
 })
 
-
+-- زر السرعة
 PlayerTab:AddToggle({
     Name = "Speed",
     Default = false,
@@ -199,7 +201,7 @@ PlayerTab:AddToggle({
     end    
 })
 
-
+-- زر القفز
 PlayerTab:AddToggle({
     Name = "Jump",
     Default = false,
@@ -212,7 +214,7 @@ PlayerTab:AddToggle({
     end    
 })
 
-
+-- زر القفز اللانهائي
 PlayerTab:AddToggle({
     Name = "Infinite Jump",
     Default = false,
@@ -225,7 +227,7 @@ PlayerTab:AddToggle({
     end    
 })
 
-
+-- زر اختراق الجدران
 PlayerTab:AddToggle({
     Name = "Wall Hack",
     Default = false,
@@ -238,5 +240,7 @@ PlayerTab:AddToggle({
     end    
 })
 
-
+-- تفعيل واجهة المستخدم
 OrionLib:Init()
+
+-- هاذه سكربت مصنوع من قبل PORG and 404
