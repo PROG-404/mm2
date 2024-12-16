@@ -17,7 +17,6 @@ local Window = OrionLib:MakeWindow({
 
 -- متغيرات التحكم بالـ Aimbot
 local AimbotEnabled = false
-local WeaponType = "Sword" -- الافتراضي: سيف
 
 -- دالة إيجاد أقرب لاعب
 local function GetClosestPlayer()
@@ -41,19 +40,15 @@ local function GetClosestPlayer()
     return closestPlayer
 end
 
--- دالة لتحريك السلاح نحو العدو
+-- دالة لتوجيه السلاح نحو العدو
 local function AimAtPlayer(targetPlayer)
     if targetPlayer and targetPlayer.Character and targetPlayer.Character:FindFirstChild("HumanoidRootPart") then
         local tool = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") -- إيجاد السلاح الحالي
         if tool then
-            if WeaponType == "Sword" or WeaponType == "Gun" or WeaponType == "Melee" or WeaponType == "Fruit" then
-                -- تحريك السلاح نحو الهدف
-                local targetPos = targetPlayer.Character.HumanoidRootPart.Position
-                -- هنا نضبط الزاوية لنتأكد من ضرب اللاعب مباشرة
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(targetPos) * CFrame.new(0, 0, 3) -- الاقتراب من الهدف
-                -- تنفيذ الهجوم
-                tool:Activate()
-            end
+            -- توجيه السلاح تجاه العدو دون تحريك اللاعب
+            local targetPos = targetPlayer.Character.HumanoidRootPart.Position
+            -- تنفيذ الهجوم على العدو
+            tool:Activate()
         end
     end
 end
@@ -97,17 +92,6 @@ AimbotTab:AddToggle({
         else
             DisableAimbot()
         end
-    end
-})
-
--- قائمة اختيار نوع السلاح
-AimbotTab:AddDropdown({
-    Name = "Weapon Type",
-    Default = "Sword",
-    Options = { "Sword", "Gun", "Melee", "Fruit" },
-    Callback = function(value)
-        WeaponType = value
-        print("Weapon Type set to:", WeaponType)
     end
 })
 
