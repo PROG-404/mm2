@@ -1,6 +1,6 @@
 -- تحميل مكتبة Orion
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "PORG-404", HidePremium = false, SaveConfig = true, ConfigFolder = "PORG-404"})
+local Window = OrionLib:MakeWindow({Name = "PORG-404 MM2", HidePremium = false, SaveConfig = true, ConfigFolder = "PORG-404-MM2"})
 
 -- القسم الأول: Main
 local MainTab = Window:MakeTab({
@@ -53,35 +53,6 @@ MainTab:AddToggle({
             local player = game.Players.LocalPlayer
             player.Character.HumanoidRootPart.CFrame = workspace.SpawnLocation.CFrame
         end
-    end    
-})
-
--- سكشن إعدادات الأداء
-MainTab:AddSection({
-    Name = "Performance Settings"
-})
-
--- زر زيادة الفريمات
-MainTab:AddButton({
-    Name = "Increase FPS",
-    Callback = function()
-        settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
-    end    
-})
-
--- زر زيادة الجودة
-MainTab:AddButton({
-    Name = "Increase Quality",
-    Callback = function()
-        settings().Rendering.QualityLevel = Enum.QualityLevel.Level21
-    end    
-})
-
--- زر إعادة ضبط اللاعب
-MainTab:AddButton({
-    Name = "Reset Player",
-    Callback = function()
-        game.Players.LocalPlayer.Character:BreakJoints()
     end    
 })
 
